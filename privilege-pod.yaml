@@ -1,7 +1,13 @@
-echo "# demo-resources" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/mccbryan3/demo-resources.git
-git push -u origin main
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sample-privileged-pod-4
+spec:
+  hostPID: true
+  hostNetwork: true
+  containers:
+    - name: sample-privileged-container
+      image: nginx:latest
+      securityContext:
+       privileged: true
+
